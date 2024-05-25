@@ -18,19 +18,20 @@ type RootLayoutProps = {
 };
 
 
-export default function RootLayout({
+const RootLayout: React.FC<RootLayoutProps> = ({
   children,
-  pageProps: { session, ...pageProps } ={ session: undefined } ,
-}: RootLayoutProps) {
+  pageProps: { session, ...pageProps } = { session: undefined },
+}) => {
   return (
     <SessionProvider session={session}>
-    <html lang="en">
-      <body className={inter.className}>
-        <Providers>
-          {children}
-        </Providers>
-      </body>
-    </html>
+      <html lang="en">
+        <body className={inter.className}>
+          <Providers>{children}</Providers>
+        </body>
+      </html>
     </SessionProvider>
   );
-}
+};
+
+// Exporta RootLayout como un componente de React
+export default RootLayout;
